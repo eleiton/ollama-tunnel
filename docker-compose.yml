@@ -1,0 +1,19 @@
+version: "3"
+services:
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    volumes:
+      - ./templates:/etc/nginx/templates:ro
+    env_file: .env
+    restart: always
+
+  cloudflared:
+    container_name: cloudflared
+    image: cloudflare/cloudflared:latest
+    network_mode: service:nginx
+    command: tunnel --no-autoupdate run
+    env_file: .env
+    restart: always
+    depends_on:
+      - nginx

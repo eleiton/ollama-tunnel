@@ -31,6 +31,7 @@ exposed with this project.
 ## Requirements
 
 - **Ollama** Running on your host machine at default port `11434`.
+- The environment variable `OLLAMA_HOST=0.0.0.0` configured.
 - **Podman or your preferred containerization tool**
 - An valid [free](https://blog.cloudflare.com/tunnel-for-everyone/) **Cloudflare Tunnel** token.
 
